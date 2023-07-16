@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-02T18:52:26+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">tamakoshi2001’s blog</title><subtitle>tamakoshi2001&apos;s blog for GSoC 2023</subtitle><entry><title type="html">Third post</title><link href="http://localhost:4000/2023/07/02/third-post.html" rel="alternate" type="text/html" title="Third post" /><published>2023-07-02T00:00:00+09:00</published><updated>2023-07-02T00:00:00+09:00</updated><id>http://localhost:4000/2023/07/02/third%20post</id><content type="html" xml:base="http://localhost:4000/2023/07/02/third-post.html"><![CDATA[<h1 id="continue-working-on-visualizationpy">Continue working on visualization.py</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-17T08:20:44+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">tamakoshi2001’s blog</title><subtitle>tamakoshi2001&apos;s blog for GSoC 2023</subtitle><entry><title type="html">Fourth post</title><link href="http://localhost:4000/2023/07/17/fourth-post.html" rel="alternate" type="text/html" title="Fourth post" /><published>2023-07-17T00:00:00+09:00</published><updated>2023-07-17T00:00:00+09:00</updated><id>http://localhost:4000/2023/07/17/fourth%20post</id><content type="html" xml:base="http://localhost:4000/2023/07/17/fourth-post.html"><![CDATA[<h1 id="two-weeks-progress-pr-merging-function-enhancement-and-pytest-introduction">Two Weeks Progress: PR Merging, Function Enhancement, and Pytest Introduction</h1>
+<p>Hello, today I will introduce what I’ve accomplished over the past two weeks.</p>
+
+<h2 id="pr-merged">PR merged</h2>
+<p>The first PR #2170 was merged into my project. You can see what was added to functions from my previous posts. This will be released in the next version of qutip, so it will not be available if you install qutip using <code class="language-plaintext highlighter-rouge">pip install qutip</code>. To actually use it, you need to execute the following code to download and use it from GitHub.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># uninstall qutip if you installed
+# download qutip from https://github.com/qutip/qutip/tree/master
+# move to the directory where setup.py exists
+cd path/to/qutip
+pip install -e .
+</code></pre></div></div>
+
+<h2 id="combining-matrix_histogram-and-matrix_histogram_complex">Combining matrix_histogram and matrix_histogram_complex</h2>
+<p>I worked on combining matrix_histogram and matrix_histogram_complex, two functions visualize different parts of Qobj’s matrix. Moreover, matrix_histogram provided users with more options. Therefore, I’ve been working hard to consolidate these two functions into one and add new features to enable users to visualize more aspects of the matrix properties.</p>
+
+<p><img width="894" alt="matrix_histogram" src="https://github.com/qutip/qutip/assets/72233550/a4c94bba-06f8-474f-b6cf-88e0385d7d5a" /></p>
+
+<h2 id="adding-pytest">Adding pytest</h2>
+<p>I also added pytest. Until now, visualization did not have tests. This made it difficult for maintainers to notice if there were bugs in the functions within visualization.py or if changes in the modules which they uses break them. By introducing pytest, we can quickly notice and fix these issues.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Two Weeks Progress: PR Merging, Function Enhancement, and Pytest Introduction Hello, today I will introduce what I’ve accomplished over the past two weeks.]]></summary></entry><entry><title type="html">Third post</title><link href="http://localhost:4000/2023/07/02/third-post.html" rel="alternate" type="text/html" title="Third post" /><published>2023-07-02T00:00:00+09:00</published><updated>2023-07-02T00:00:00+09:00</updated><id>http://localhost:4000/2023/07/02/third%20post</id><content type="html" xml:base="http://localhost:4000/2023/07/02/third-post.html"><![CDATA[<h1 id="continue-working-on-visualizationpy">Continue working on visualization.py</h1>
 <p>Over the past two weeks, I have continued working on my previous task and improved it further.</p>
 
 <h2 id="apply-colorblind_safe-more">Apply colorblind_safe more</h2>
