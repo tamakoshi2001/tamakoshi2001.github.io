@@ -6,10 +6,7 @@ The first PR #2170 was merged into my project. You can see what was added to fun
 
 ```
 # uninstall qutip if you installed
-# download qutip from https://github.com/qutip/qutip/tree/master
-# move to the directory where setup.py exists
-cd path/to/qutip
-pip install -e .
+pip install git+https://github.com/qutip/qutip.git@master
 ```
 
 ## Combining matrix_histogram and matrix_histogram_complex
@@ -19,3 +16,6 @@ I worked on combining matrix_histogram and matrix_histogram_complex, two functio
 
 ## Adding pytest
 I also added pytest. Until now, visualization did not have tests. This made it difficult for maintainers to notice if there were bugs in the functions within visualization.py or if changes in the modules which they uses break them. By introducing pytest, we can quickly notice and fix these issues.
+
+## Next work
+We often want to see the time evolution of a system. '''Quite.solver.Result''' class allows us to have the state of such systems. For example, '''plot_expectation_values''' is suitable for plotting the expectation values of such systems. However, if the user wants to visualize the time evolution of the density matrix of such a system, they have to create their own animation, although the animation function provided by matplotlib is often difficult to use. I am working on providing a function that allows the user to easily create animations by simply passing the results, while at the same time allowing them to edit the animation settings.
