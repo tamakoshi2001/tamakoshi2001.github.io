@@ -1,0 +1,56 @@
+# Adding animation functions
+In quantum mechanics, time evolution is an important topic. QuTiP provides many functions to easily calculate it. However, until now, QuTiP did not have any functions to visualize this.
+To make it more useful for users, I have been creating many animation functions. I will first explain the implementation, then present a simple simulation.
+
+Matplotlib offers two tools for animations: ArtistAnimation and FuncAnimation. While FuncAnimation can create animations faster, its implementation is a bit complicated, so I have used ArtistAnimation this time. However, quantum mechanics simulations often involve large matrices, and these can consume a lot of PC memory. This can cause ArtistAnimation to run quite slowly, so I am considering refactoring.
+
+I will now explain the current implementation. ArtistAnimation creates all the animation frames that you want to draw first. Here, ArtistAnimation receives a list of artist objects as an array and draws each list for each frame. Let's look at an example. The code below is a part of the anim_sphereplot code. As we can see from the official document, plot_surface returns Poly3DCollection, which overrides the Artist class. This code stores this object in an array and adds it to the artist_list to draw it.
+
+```
+def anim_sphereplot ...
+.
+.
+# plot with facecolors set to cm.jet colormap normalized to nrm
+artist_list = list()
+for r, ph in r_and_ph:
+    artist = [ax.plot_surface(r * xx, r * yy, r * zz, rstride=1, cstride=1,
+                                facecolors=cmap(norm(ph)), linewidth=0,)]
+    artist_list.append(artist)
+.
+```
+
+
+By doing so, the axes retain settings such as title and xlim, while only the plot is changed.
+
+Next, I will explain about save_options. The Jupyter notebook is a great environment for running Python code. However, it often doesn't work well when you draw animations. Therefore, we convert the mp4 file of the animation to an html video. By doing so, you can check the animation on the spot, as shown in the image below. save_options allows you to set the file name and set the writer when creating the mp4 file.
+
+Let's look at an example. Suppose we consider the time evolution of the Pauli operator σ_x, with the Hamiltonian as the Pauli matrix σ_y. By using anim_matrix_histogram, we can check the components of the Pauli operator.
+
+```
+from qutip import ket, sigmaz, tensor, qeye, mesolve
+import qutip as qt
+import numpy as np
+# Hamiltonian
+H = qt.sigmay().unit()
+
+# initial state
+psi0 = qt.sigmax().unit()
+
+# list of times for which the solver should store the state vector
+tlist = np.linspace(0, 2*np.pi, 50)
+
+results = mesolve(H, psi0, tlist, [], [])
+
+fig, ani, html = qt.anim_matrix_histogram(results.states, save_options={'name': 'real'})
+html
+
+fig, ani, html = qt.anim_matrix_histogram(results.states, bar_style='img',
+                                          color_style='img', save_options={'name': 'imaginary'})
+html
+```
+
+<div><video controls src="https://github.com/qutip/qutip/assets/72233550/b5a842ef-fcf8-4137-a8dc-7c3efcefdb62" muted="false"></video></div>
+The real part of the pauli operator
+
+<div><video controls src="https://github.com/qutip/qutip/assets/72233550/45550141-8cdb-4131-9109-b17d0a115826" muted="false"></video></div>
+The imaginary part of the pauli operator

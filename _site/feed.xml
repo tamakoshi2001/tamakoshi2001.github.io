@@ -1,4 +1,56 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-24T19:17:02+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">tamakoshi2001’s blog</title><subtitle>tamakoshi2001&apos;s blog for GSoC 2023</subtitle><entry><title type="html">Fourth post</title><link href="http://localhost:4000/2023/07/17/fourth-post.html" rel="alternate" type="text/html" title="Fourth post" /><published>2023-07-17T00:00:00+09:00</published><updated>2023-07-17T00:00:00+09:00</updated><id>http://localhost:4000/2023/07/17/fourth%20post</id><content type="html" xml:base="http://localhost:4000/2023/07/17/fourth-post.html"><![CDATA[<h1 id="two-weeks-progress-pr-merging-function-enhancement-and-pytest-introduction">Two Weeks Progress: PR Merging, Function Enhancement, and Pytest Introduction</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-07-31T08:21:33+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">tamakoshi2001’s blog</title><subtitle>tamakoshi2001&apos;s blog for GSoC 2023</subtitle><entry><title type="html">Fifth post</title><link href="http://localhost:4000/2023/07/31/fifth-post.html" rel="alternate" type="text/html" title="Fifth post" /><published>2023-07-31T00:00:00+09:00</published><updated>2023-07-31T00:00:00+09:00</updated><id>http://localhost:4000/2023/07/31/fifth%20post</id><content type="html" xml:base="http://localhost:4000/2023/07/31/fifth-post.html"><![CDATA[<h1 id="adding-animation-functions">Adding animation functions</h1>
+<p>In quantum mechanics, time evolution is an important topic. QuTiP provides many functions to easily calculate it. However, until now, QuTiP did not have any functions to visualize this.
+To make it more useful for users, I have been creating many animation functions. I will first explain the implementation, then present a simple simulation.</p>
+
+<p>Matplotlib offers two tools for animations: ArtistAnimation and FuncAnimation. While FuncAnimation can create animations faster, its implementation is a bit complicated, so I have used ArtistAnimation this time. However, quantum mechanics simulations often involve large matrices, and these can consume a lot of PC memory. This can cause ArtistAnimation to run quite slowly, so I am considering refactoring.</p>
+
+<p>I will now explain the current implementation. ArtistAnimation creates all the animation frames that you want to draw first. Here, ArtistAnimation receives a list of artist objects as an array and draws each list for each frame. Let’s look at an example. The code below is a part of the anim_sphereplot code. As we can see from the official document, plot_surface returns Poly3DCollection, which overrides the Artist class. This code stores this object in an array and adds it to the artist_list to draw it.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def anim_sphereplot ...
+.
+.
+# plot with facecolors set to cm.jet colormap normalized to nrm
+artist_list = list()
+for r, ph in r_and_ph:
+    artist = [ax.plot_surface(r * xx, r * yy, r * zz, rstride=1, cstride=1,
+                                facecolors=cmap(norm(ph)), linewidth=0,)]
+    artist_list.append(artist)
+.
+</code></pre></div></div>
+
+<p>By doing so, the axes retain settings such as title and xlim, while only the plot is changed.</p>
+
+<p>Next, I will explain about save_options. The Jupyter notebook is a great environment for running Python code. However, it often doesn’t work well when you draw animations. Therefore, we convert the mp4 file of the animation to an html video. By doing so, you can check the animation on the spot, as shown in the image below. save_options allows you to set the file name and set the writer when creating the mp4 file.</p>
+
+<p>Let’s look at an example. Suppose we consider the time evolution of the Pauli operator σ_x, with the Hamiltonian as the Pauli matrix σ_y. By using anim_matrix_histogram, we can check the components of the Pauli operator.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from qutip import ket, sigmaz, tensor, qeye, mesolve
+import qutip as qt
+import numpy as np
+# Hamiltonian
+H = qt.sigmay().unit()
+
+# initial state
+psi0 = qt.sigmax().unit()
+
+# list of times for which the solver should store the state vector
+tlist = np.linspace(0, 2*np.pi, 50)
+
+results = mesolve(H, psi0, tlist, [], [])
+
+fig, ani, html = qt.anim_matrix_histogram(results.states, save_options={'name': 'real'})
+html
+
+fig, ani, html = qt.anim_matrix_histogram(results.states, bar_style='img',
+                                          color_style='img', save_options={'name': 'imaginary'})
+html
+</code></pre></div></div>
+
+<div><video controls="" src="https://github.com/qutip/qutip/assets/72233550/b5a842ef-fcf8-4137-a8dc-7c3efcefdb62" muted="false"></video></div>
+<p>The real part of the pauli operator</p>
+
+<div><video controls="" src="https://github.com/qutip/qutip/assets/72233550/45550141-8cdb-4131-9109-b17d0a115826" muted="false"></video></div>
+<p>The imaginary part of the pauli operator</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Adding animation functions In quantum mechanics, time evolution is an important topic. QuTiP provides many functions to easily calculate it. However, until now, QuTiP did not have any functions to visualize this. To make it more useful for users, I have been creating many animation functions. I will first explain the implementation, then present a simple simulation.]]></summary></entry><entry><title type="html">Fourth post</title><link href="http://localhost:4000/2023/07/17/fourth-post.html" rel="alternate" type="text/html" title="Fourth post" /><published>2023-07-17T00:00:00+09:00</published><updated>2023-07-17T00:00:00+09:00</updated><id>http://localhost:4000/2023/07/17/fourth%20post</id><content type="html" xml:base="http://localhost:4000/2023/07/17/fourth-post.html"><![CDATA[<h1 id="two-weeks-progress-pr-merging-function-enhancement-and-pytest-introduction">Two Weeks Progress: PR Merging, Function Enhancement, and Pytest Introduction</h1>
 <p>Hello, today I will introduce what I’ve accomplished over the past two weeks.</p>
 
 <h2 id="pr-merged">PR merged</h2>
