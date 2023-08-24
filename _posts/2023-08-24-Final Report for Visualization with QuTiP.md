@@ -5,6 +5,8 @@ School: 4th year undergraduate student at the University of Tokyo, Department of
 GitHub: tamakoshi2001, https://github.com/tamakoshi2001<br>
 Email: uotstudent2001@g.ecc.u-tokyo.ac.jp or tamakosiy@gmail.com<br>
 Phone: +81 (0)70-8367-2723
+Acceptance Letter: [Acceptance Letter](https://github.com/tamakoshi2001/tamakoshi2001.github.io/files/12425516/GSoCAcceptanceLetter.pdf)<br>
+Project Proposal: [Project Proposal](https://github.com/tamakoshi2001/tamakoshi2001.github.io/files/12425518/GSoC_QuTiP_Project6.pdf)
 ## 2. Goals of this project
 ### 2-1. Improving plot functions
 The first goal is to improve plot functions. Before this project, the arguments of functions were not well organized. For example, you couldn’t set `figsize` in `plot_wigner`, but not in `plot_wigner_sphere`. This prevented users from using them intuitively. Also, QuTiP has `colorblind_safe` as an option to make itself useful for people suffering from color blindness, but most functions do not use it.
