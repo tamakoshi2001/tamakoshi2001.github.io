@@ -1,4 +1,3 @@
-# Final Report for Visualization with QuTiP
 ## 1. Personal Background
 Name: Yuji TAMAKOSHI<br>
 Location: Japan<br>
