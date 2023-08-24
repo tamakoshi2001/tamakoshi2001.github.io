@@ -112,6 +112,6 @@ The first was the significance of official documentation. First, I tried to unde
 ### 8-2. Communication
 The second lesson was the importance of communication. I frequently discussed my code and the progress of my project with my mentor, both in meetings and through text chats. Thanks to these interactions, I was able to refine my code and successfully complete my project on schedule.
 ## 9. Acknowledgment
-I'd like to thank Google for giving us a wonderful opportunity to start to contribute to OSS and my mentors Eric Giguere (eric.giguere@calculquebec.ca) and Simon Cross (hodgestar@gmail.com) for helping me completing this project.
+I'd like to thank Google for giving us a wonderful opportunity to start to contribute to OSS and my mentors [Eric Giguere](https://github.com/Ericgig) and [Neill Lambert](https://github.com/nwlambert) for helping me completing this project.
 
 Through GSoC2023, I learned about software development from planning a project to collaborating to achieve it. I will continue to do what I can to the community by making use of this experience.
