@@ -97,13 +97,13 @@ This project completed all tasks. Nothing is left.
 ## 6. Code got merged
 Here is the PRs for my project.
 ### 6-1. Improving plot functions
-Most change was done in this two PRs.<br>
+PRs with most changes made<br>
 [Organize arguments of functions and apply colorblind_safe option](https://github.com/qutip/qutip/pull/2170)<br>
 [Add pytest for visualization.py](https://github.com/qutip/qutip/pull/2192)<br>
 Additional changes<br>
 [Update plot_wigner_sphere and delete matrix_histogram_complex](https://github.com/qutip/qutip/pull/2193)<br>
 [Sort arguments of sphereplot](https://github.com/qutip/qutip/pull/2219)<br>
-Update notebooks<br>
+Update for notebooks<br>
 [Change notebook to follow qutip PR#2170](https://github.com/qutip/qutip-tutorials/pull/66)<br>
 [Delete matrix_histogram_complex](https://github.com/qutip/qutip-tutorials/pull/68)
 ### 6-2. Creating animation functions

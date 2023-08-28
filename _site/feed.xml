@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-08-28T09:30:39+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">tamakoshi2001’s blog</title><subtitle>tamakoshi2001&apos;s blog for GSoC 2023</subtitle><entry><title type="html">Final report for visualization with qutip</title><link href="http://localhost:4000/2023/08/24/Final-Report-for-Visualization-with-QuTiP.html" rel="alternate" type="text/html" title="Final report for visualization with qutip" /><published>2023-08-24T00:00:00+09:00</published><updated>2023-08-24T00:00:00+09:00</updated><id>http://localhost:4000/2023/08/24/Final%20Report%20for%20Visualization%20with%20QuTiP</id><content type="html" xml:base="http://localhost:4000/2023/08/24/Final-Report-for-Visualization-with-QuTiP.html"><![CDATA[<h2 id="1-personal-background">1. Personal Background</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-08-28T09:37:12+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">tamakoshi2001’s blog</title><subtitle>tamakoshi2001&apos;s blog for GSoC 2023</subtitle><entry><title type="html">Final report for visualization with qutip</title><link href="http://localhost:4000/2023/08/24/Final-Report-for-Visualization-with-QuTiP.html" rel="alternate" type="text/html" title="Final report for visualization with qutip" /><published>2023-08-24T00:00:00+09:00</published><updated>2023-08-24T00:00:00+09:00</updated><id>http://localhost:4000/2023/08/24/Final%20Report%20for%20Visualization%20with%20QuTiP</id><content type="html" xml:base="http://localhost:4000/2023/08/24/Final-Report-for-Visualization-with-QuTiP.html"><![CDATA[<h2 id="1-personal-background">1. Personal Background</h2>
 <p>Name: Yuji TAMAKOSHI<br />
 Location: Japan<br />
 School: 4th year undergraduate student at the University of Tokyo, Department of physical engineering<br />
@@ -91,13 +91,13 @@ This is a simple animation of a time evolution of a state.</p>
 <h2 id="6-code-got-merged">6. Code got merged</h2>
 <p>Here is the PRs for my project.</p>
 <h3 id="6-1-improving-plot-functions">6-1. Improving plot functions</h3>
-<p>Most change was done in this two PRs.<br />
+<p>PRs with most changes made<br />
 <a href="https://github.com/qutip/qutip/pull/2170">Organize arguments of functions and apply colorblind_safe option</a><br />
 <a href="https://github.com/qutip/qutip/pull/2192">Add pytest for visualization.py</a><br />
 Additional changes<br />
 <a href="https://github.com/qutip/qutip/pull/2193">Update plot_wigner_sphere and delete matrix_histogram_complex</a><br />
 <a href="https://github.com/qutip/qutip/pull/2219">Sort arguments of sphereplot</a><br />
-Update notebooks<br />
+Update for notebooks<br />
 <a href="https://github.com/qutip/qutip-tutorials/pull/66">Change notebook to follow qutip PR#2170</a><br />
 <a href="https://github.com/qutip/qutip-tutorials/pull/68">Delete matrix_histogram_complex</a></p>
 <h3 id="6-2-creating-animation-functions">6-2. Creating animation functions</h3>
