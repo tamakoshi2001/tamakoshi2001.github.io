@@ -6,13 +6,15 @@ GitHub: tamakoshi2001, https://github.com/tamakoshi2001<br>
 Email: uotstudent2001@g.ecc.u-tokyo.ac.jp or tamakosiy@gmail.com<br>
 Phone: +81 (0)70-8367-2723
 Acceptance Letter: [Acceptance Letter](https://github.com/tamakoshi2001/tamakoshi2001.github.io/files/12425516/GSoCAcceptanceLetter.pdf)<br>
-Project Proposal: [Project Proposal](https://github.com/tamakoshi2001/tamakoshi2001.github.io/files/12425518/GSoC_QuTiP_Project6.pdf)
+Project Proposal: [Project Proposal](https://github.com/tamakoshi2001/tamakoshi2001.github.io/files/12425518/GSoC_QuTiP_Project6.pdf)<br>
+Blog on my project: [Blog](https://tamakoshi2001.github.io/)
 ## 2. Goals of this project
 ### 2-1. Improving plot functions
 The first goal is to improve plot functions. Before this project, the arguments of functions were not well organized. For example, you couldn’t set `figsize` in `plot_wigner`, but not in `plot_wigner_sphere`. This prevented users from using them intuitively. Also, QuTiP has `colorblind_safe` as an option to make itself useful for people suffering from color blindness, but most functions do not use it.
 ### 2-2. Creating animation functions
 The second goal is to create animation functions. The time evolution of quantum states is an important part of quantum physics and QuTiP has many functions to calculate it fast and easily. Animation functions help users to quickly visualize it and make QuTiP more useful.
 ## 3. My contribution
+You can also see my contribution in [my blog](https://tamakoshi2001.github.io/)
 ### 3-1. Improving plot functions
 #### 3-1-1. Selecting arguments
 We discussed which variables should be kept, which should be added, and how they should be arranged to make the plot functions user-friendly. We decided to place the variables in the order of essential variables for the function, function-specific optional variables, and common variables.
@@ -93,16 +95,22 @@ I completed all the tasks. My work is in the 6th section.
 ## 5. What is left to do
 This project completed all tasks. Nothing is left.
 ## 6. Code got merged
+Here is the PRs for my project.
 ### 6-1. Improving plot functions
+Most change was done in this two PRs.<br>
 [Organize arguments of functions and apply colorblind_safe option](https://github.com/qutip/qutip/pull/2170)<br>
-[pytest for visualization.py](https://github.com/qutip/qutip/pull/2192)<br>
-[change for plot_wigner_sphere and matrix_histogram_complex](https://github.com/qutip/qutip/pull/2193)<br>
-[sort args of sphereplot](https://github.com/qutip/qutip/pull/2219)<br>
-[change notebook to follow qutip PR#2170](https://github.com/qutip/qutip-tutorials/pull/66)<br>
-[delete matrix_histogram_complex](https://github.com/qutip/qutip-tutorials/pull/68)
+[Add pytest for visualization.py](https://github.com/qutip/qutip/pull/2192)<br>
+Additional changes<br>
+[Update plot_wigner_sphere and delete matrix_histogram_complex](https://github.com/qutip/qutip/pull/2193)<br>
+[Sort arguments of sphereplot](https://github.com/qutip/qutip/pull/2219)<br>
+Update notebooks<br>
+[Change notebook to follow qutip PR#2170](https://github.com/qutip/qutip-tutorials/pull/66)<br>
+[Delete matrix_histogram_complex](https://github.com/qutip/qutip-tutorials/pull/68)
 ### 6-2. Creating animation functions
-[add animation functions](https://github.com/qutip/qutip/pull/2203)<br>
-[add animation demo](https://github.com/qutip/qutip-tutorials/pull/67)
+Adding new functions<br>
+[Add animation functions](https://github.com/qutip/qutip/pull/2203)<br>
+Making a tutorial notebook for animation functions and update for some notebooks<br>
+[Add animation demo](https://github.com/qutip/qutip-tutorials/pull/67)
 ## 7. Challenges
 ### 7-1. Keeping thinking about what code is good
 The first one was questioning whether my code was optimal. The code I wrote would be used by many people, and Someone might add new things in the future. Therefore, it's crucial to write code that is user-friendly and extensible. While there's no definitive answer to what code meets them, I did my best through discussions with my mentor.
